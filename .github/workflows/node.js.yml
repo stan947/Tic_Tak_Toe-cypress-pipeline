@@ -30,6 +30,10 @@ jobs:
       run: npm ci
 
     - name: Start react App in Bacgraound  
-      run: npm dev &
+      run: npm run dev &
+      env:
+          CI: true 
+    - name: Wait For React to be Ready
+      run: npx wait-on http://localhost:5173
 
-    - run: npm run cy:cli
+    - run: npx cypress run
