@@ -26,6 +26,10 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm ci
-    - run: npm run build --if-present
-    - run: npm test
+    - name: Install dependecies   
+      run: npm ci
+
+    - name: Start react App in Bacgraound  
+      run: npm dev &
+
+    - run: npm run cy:cli
