@@ -11,7 +11,9 @@
     "cy:ui": "cypress open",
     "cy:cli": "cypress run",
     "test:e2e": "concurrently \"npm run dev\" \"npm run cy:ui\"",
-    "test:e2eh": "concurrently \"npm run dev\" \"npx wait-on http://localhost:5173 && npm run cy:cli\""
+    "test:e2eh": "concurrently \"npm run dev\" \"npx wait-on http://localhost:5173 && npm run cy:cli\"",
+    "unit": "concurrently \"npm run dev\" \"npx wait-on http://localhost:5173 && vitest\"",
+    "unit:watch": "concurrently \"npm run dev\" \"npx wait-on http://localhost:5173 && vitest --watch\""
   },
   "dependencies": {
     "react": "^19.0.0",
@@ -19,6 +21,8 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.2.0",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "@vitejs/plugin-react": "^4.3.4",
@@ -28,6 +32,7 @@
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^15.15.0",
-    "vite": "^6.2.0"
+    "vite": "^6.2.0",
+    "vitest": "^3.0.9"
   }
 }
